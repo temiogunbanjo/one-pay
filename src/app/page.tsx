@@ -3,7 +3,6 @@
 import Image from "next/image";
 import * as Yup from "yup";
 import { Formik, FormikHelpers, FormikValues } from "formik";
-import PaystackPop from "@paystack/inline-js";
 
 import Input from "@/components/Input";
 import Select from "@/components/Select";
@@ -44,6 +43,7 @@ export default function Home() {
     values: FormikValues,
     helpers: FormikHelpers<FormikValues>
   ) => {
+    const PaystackPop = (await import("@paystack/inline-js")).default;
     const popup = new PaystackPop();
 
     try {
